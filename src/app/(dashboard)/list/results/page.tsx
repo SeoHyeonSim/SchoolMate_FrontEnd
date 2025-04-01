@@ -2,7 +2,6 @@ import FormModal from "@/components/FormModal";
 import Pagniation from "@/components/Pagniation";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { resultsData, role } from "@/lib/data";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 import { Prisma } from "@prisma/client";
 import Image from "next/image";

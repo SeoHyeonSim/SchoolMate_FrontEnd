@@ -1,4 +1,3 @@
-import FormModal from "@/components/FormModal";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
 import prisma from "@/lib/prismadb";

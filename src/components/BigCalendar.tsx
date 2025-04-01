@@ -8,11 +8,15 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
-const BigCalendar = ({
-    data,
-}: {
-    data: { title: string; start: Date; end: Date }[];
-}) => {
+interface BigCalendarProps {
+    data: {
+        title: string;
+        start: Date;
+        end: Date;
+    }[];
+}
+
+const BigCalendar = () => {
     const [view, setView] = useState<View>(Views.WORK_WEEK);
 
     const handleView = (selectedView: View) => {

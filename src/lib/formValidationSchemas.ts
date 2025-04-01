@@ -143,7 +143,7 @@ export type LessonSchema = z.infer<typeof lessonSchema>;
 
 // parent
 export const parentSchema = z.object({
-    id: z.string().optional(), 
+    id: z.string().optional(),
     username: z.string().min(1, { message: "Username is required" }),
     name: z.string().min(1, { message: "Name is required" }),
     surname: z.string().min(1, { message: "Surname is required" }),
@@ -154,3 +154,14 @@ export const parentSchema = z.object({
 });
 
 export type ParentSchema = z.infer<typeof parentSchema>;
+
+// attendance
+export const attendanceSchema = z.object({
+    id: z.coerce.number().optional(),
+    date: z.coerce.date({ message: "Date is required!" }),
+    present: z.boolean().optional(),
+    studentId: z.string().min(1, { message: "Student Id is required!" }),
+    lessonId: z.coerce.number({ message: "Lesson Id is required!" }),
+});
+
+export type AttendanceSchema = z.infer<typeof attendanceSchema>;

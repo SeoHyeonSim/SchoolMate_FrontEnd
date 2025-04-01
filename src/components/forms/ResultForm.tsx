@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import InputField from "../InputField";
+import { Dispatch, SetStateAction } from "react";
 
 const schema = z.object({
     subjectName: z
@@ -21,9 +22,11 @@ type Inputs = z.infer<typeof schema>;
 const ResultForm = ({
     type,
     data,
+    setOpen,
 }: {
     type: "create" | "update";
     data?: any;
+    setOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
     const {
         register,
@@ -40,9 +43,6 @@ const ResultForm = ({
     return (
         <form className="flex flex-col gap-8 p-2" onSubmit={onSubmit}>
             <h1 className="text-xl font-semibold">Create a new result</h1>
-            <span className="text-xs text-gray-400 font-medium">
-                Authentication Information
-            </span>
             <div className="flex justify-between flex-wrap gap-4">
                 <InputField
                     label="Subject Name"

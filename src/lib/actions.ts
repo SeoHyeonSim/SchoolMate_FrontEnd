@@ -3,6 +3,7 @@
 import {
     AnnouncementSchema,
     AssignmentSchema,
+    AttendanceSchema,
     ClassSchema,
     EventSchema,
     ExamSchema,
@@ -977,6 +978,83 @@ export const deleteParent = async (
         return { success: true, error: false };
     } catch (err) {
         console.log("Delete Parent Error:", err);
+        return { success: false, error: true };
+    }
+};
+
+// result
+export const createResult = async () => {};
+
+export const updateResult = async () => {};
+
+export const deleteResult = async () => {};
+
+// attendance
+export const createAttendance = async (
+    currentState: CurrentState,
+    data: AttendanceSchema
+) => {
+    try {
+        await prisma.attendance.create({
+            data: {
+                date: data.date,
+                present: data.present ?? false,
+                studentId: data.studentId,
+                lessonId: data.lessonId,
+            },
+        });
+
+        return { success: true, error: false };
+    } catch (err) {
+        console.log("Create Attendance Error:", err);
+        return { success: false, error: true };
+    }
+};
+
+export const updateAttendance = async (
+    currentState: CurrentState,
+    data: AttendanceSchema
+) => {
+    if (!data.id) {
+        return { success: false, error: true };
+    }
+
+    try {
+        await prisma.attendance.update({
+            where: { id: data.id },
+            data: {
+                date: data.date,
+                present: data.present ?? false,
+                studentId: data.studentId,
+                lessonId: data.lessonId,
+            },
+        });
+
+        return { success: true, error: false };
+    } catch (err) {
+        console.log("Update Attendance Error:", err);
+        return { success: false, error: true };
+    }
+};
+
+export const deleteAttendance = async (
+    currentState: CurrentState,
+    data: FormData
+) => {
+    const id = parseInt(data.get("id") as string, 10);
+
+    if (!id) {
+        return { success: false, error: true };
+    }
+
+    try {
+        await prisma.attendance.delete({
+            where: { id },
+        });
+
+        return { success: true, error: false };
+    } catch (err) {
+        console.log("Delete Attendance Error:", err);
         return { success: false, error: true };
     }
 };

@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import InputField from "../InputField";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { lessonSchema, LessonSchema } from "@/lib/formValidationSchemas";
@@ -61,8 +60,8 @@ const LessonForm = ({
         <form className="flex flex-col gap-8 p-2" onSubmit={onSubmit}>
             <h1 className="text-xl font-semibold">
                 {type === "create"
-                    ? "Create a new subject"
-                    : "Update the subject"}
+                    ? "Create a new Lesson"
+                    : "Update Lesson"}
             </h1>{" "}
             <span className="text-xs text-gray-400 font-medium">
                 Lesson Information

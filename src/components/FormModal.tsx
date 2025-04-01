@@ -3,6 +3,7 @@
 import {
     deleteAnnouncement,
     deleteAssignment,
+    deleteAttendance,
     deleteClass,
     deleteEvent,
     deleteExam,
@@ -30,7 +31,7 @@ const deleteActionMap = {
     lesson: deleteLesson,
     assignment: deleteAssignment,
     result: deleteSubject,
-    attendance: deleteSubject,
+    attendance: deleteAttendance,
     event: deleteEvent,
     announcement: deleteAnnouncement,
 };
@@ -138,9 +139,16 @@ const forms: {
             relatedData={relatedData}
         />
     ),
-    result: (setOpen, type, data) => <ResultForm type={type} data={data} />,
-    attendance: (setOpen, type, data) => (
-        <AttendanceForm type={type} data={data} />
+    result: (setOpen, type, data) => (
+        <ResultForm type={type} data={data} setOpen={setOpen} />
+    ),
+    attendance: (setOpen, type, data, relatedData) => (
+        <AttendanceForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+            relatedData={relatedData}
+        />
     ),
     event: (setOpen, type, data, relatedData) => (
         <EventForm
