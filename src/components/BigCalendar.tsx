@@ -16,7 +16,7 @@ interface BigCalendarProps {
     }[];
 }
 
-const BigCalendar = () => {
+const BigCalendar = ({data}: BigCalendarProps) => {
     const [view, setView] = useState<View>(Views.WORK_WEEK);
 
     const handleView = (selectedView: View) => {

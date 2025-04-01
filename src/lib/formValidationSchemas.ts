@@ -165,3 +165,18 @@ export const attendanceSchema = z.object({
 });
 
 export type AttendanceSchema = z.infer<typeof attendanceSchema>;
+
+// result 
+export const resultSchema = z.object({
+    subjectName: z
+        .string()
+        .min(1, { message: "Subject Name must not be emtpy!" }),
+    student: z.string().min(1, { message: "Student Name must not be emtpy!" }),
+    score: z.number().min(1, { message: "Score Name must not be emtpy!" }),
+    teacher: z.string().min(1, { message: "Teacher Name must not be emtpy!" }),
+    class: z.string().min(1, { message: "Class is required!" }),
+    date: z.date({ message: "Date is required!" }),
+});
+
+export type ResultSchema = z.infer<typeof resultSchema>;
+
