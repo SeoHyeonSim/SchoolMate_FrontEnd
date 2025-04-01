@@ -45,3 +45,18 @@ export const adjustScheduleToCurrentWeek = (
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
+
+export function getOrdinalSuffix(num: number): string {
+    if (num >= 11 && num <= 13) return "th"; // 11, 12, 13 예외 처리
+    const lastDigit = num % 10;
+    switch (lastDigit) {
+        case 1:
+            return "st";
+        case 2:
+            return "nd";
+        case 3:
+            return "rd";
+        default:
+            return "th";
+    }
+}

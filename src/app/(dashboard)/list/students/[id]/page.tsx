@@ -10,24 +10,22 @@ import { notFound } from "next/navigation";
 import BigCalenderContainer from "@/components/BigCalenderContainer";
 import FormContainer from "@/components/FormContainer";
 import StudentAttendanceCard from "@/components/StudentAttendanceCard";
+import { getOrdinalSuffix } from "@/lib/utils";
 
-// utils/getOrdinalSuffix.ts
-
-// 학년 함수 (뻘짓)
-export function getOrdinalSuffix(num: number): string {
-    if (num >= 11 && num <= 13) return "th"; // 11, 12, 13 예외 처리
-    const lastDigit = num % 10;
-    switch (lastDigit) {
-        case 1:
-            return "st";
-        case 2:
-            return "nd";
-        case 3:
-            return "rd";
-        default:
-            return "th";
-    }
-}
+// export function getOrdinalSuffix(num: number): string {
+//     if (num >= 11 && num <= 13) return "th"; // 11, 12, 13 예외 처리
+//     const lastDigit = num % 10;
+//     switch (lastDigit) {
+//         case 1:
+//             return "st";
+//         case 2:
+//             return "nd";
+//         case 3:
+//             return "rd";
+//         default:
+//             return "th";
+//     }
+// }
 
 const SingleStudentPage = async ({
     params: { id },
@@ -140,7 +138,7 @@ const SingleStudentPage = async ({
                                 className="w-6 h-6"
                             />
                             <div className="">
-                                <StudentAttendanceCard id={student.id}/>
+                                <StudentAttendanceCard id={student.id} />
                             </div>
                         </div>
                         {/* CARD */}
@@ -152,7 +150,7 @@ const SingleStudentPage = async ({
                                 height={24}
                                 className="w-6 h-6"
                             />
-                            <div className="">
+                            <div>
                                 <h1 className="text-xl font-semibold">
                                     {student.class.name.charAt(0)}
                                     {getOrdinalSuffix(
