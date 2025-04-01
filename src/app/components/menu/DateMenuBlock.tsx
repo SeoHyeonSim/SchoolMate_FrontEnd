@@ -11,8 +11,8 @@ const DateMenuBlock: React.FC<DateMenuBlockProps> = ({ day, menuForDay }) => {
 
     const displayMenus = menuForDay?.menu ? menuForDay.menu.slice(0, 2) : [];
     const isFullMenuDisplayed = displayMenus.length >= 2;
-    const hasMenu = menuForDay?.menu.length > 0;
-
+    const hasMenu =
+        Array.isArray(menuForDay?.menu) && menuForDay.menu.length > 0;
     return (
         <div
             className=" h-[150px] min-h-[100px] min-w-[100px] border-2 border-slate-300 rounded-md p-1 relative"
