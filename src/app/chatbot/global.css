@@ -1,0 +1,6 @@
+html,
+body {
+    min-width: 400px;
+    min-height: 600px;
+    overflow: hidden;
+}

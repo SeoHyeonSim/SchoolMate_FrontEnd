@@ -1,0 +1,136 @@
+import { Day } from "@prisma/client";
+
+export const menuData = [
+    {
+        menu: ["옥수수밥", "미역국", "멸치볶음", "깍두기", "시금치무침"],
+        date: new Date("2025-05-01"),
+        day: Day.THURSDAY,
+        description: "",
+    },
+    {
+        menu: ["비빔밥", "된장국", "잡채", "배추김치", "고등어구이"],
+        date: new Date("2025-05-02"),
+        day: Day.FRIDAY,
+        description: "",
+    },
+    {
+        menu: ["옥수수밥", "미역국", "멸치볶음", "깍두기", "시금치무침"],
+        date: new Date("2025-05-05"),
+        day: Day.MONDAY,
+        description: "",
+    },
+    {
+        menu: ["비빔밥", "된장국", "잡채", "배추김치", "고등어구이"],
+        date: new Date("2025-05-06"),
+        day: Day.TUESDAY,
+        description: "",
+    },
+    {
+        menu: ["검은콩밥", "김치국", "코다리튀김", "단무지", "요구르트"],
+        date: new Date("2025-05-07"),
+        day: Day.WEDNESDAY,
+        description: "오늘은 다 먹는 날!",
+    },
+    {
+        menu: ["돈까스", "쌀국수", "김치", "바나나", "고구마 튀김"],
+        date: new Date("2025-05-08"),
+        day: Day.THURSDAY,
+        description: "",
+    },
+    {
+        menu: ["햄버거", "오렌지 주스", "샐러드", "구운 옥수수", "감자튀김"],
+        date: new Date("2025-05-09"),
+        day: Day.FRIDAY,
+        description: "",
+    },
+    {
+        menu: ["옥수수밥", "미역국", "멸치볶음", "깍두기", "시금치무침"],
+        date: new Date("2025-05-12"),
+        day: Day.MONDAY,
+        description: "",
+    },
+    {
+        menu: ["비빔밥", "된장국", "잡채", "배추김치", "고등어구이"],
+        date: new Date("2025-05-13"),
+        day: Day.TUESDAY,
+        description: "",
+    },
+    {
+        menu: ["검은콩밥", "김치국", "코다리튀김", "단무지", "요구르트"],
+        date: new Date("2025-05-14"),
+        day: Day.WEDNESDAY,
+        description: "오늘은 다 먹는 날!",
+    },
+    {
+        menu: ["돈까스", "쌀국수", "김치", "바나나", "고구마 튀김"],
+        date: new Date("2025-05-15"),
+        day: Day.THURSDAY,
+        description: "",
+    },
+    {
+        menu: ["햄버거", "오렌지 주스", "샐러드", "구운 옥수수", "감자튀김"],
+        date: new Date("2025-05-16"),
+        day: Day.FRIDAY,
+        description: "",
+    },
+    {
+        menu: ["옥수수밥", "미역국", "멸치볶음", "깍두기", "시금치무침"],
+        date: new Date("2025-05-19"),
+        day: Day.MONDAY,
+        description: "",
+    },
+    {
+        menu: ["비빔밥", "된장국", "잡채", "배추김치", "고등어구이"],
+        date: new Date("2025-05-20"),
+        day: Day.TUESDAY,
+        description: "",
+    },
+    {
+        menu: ["검은콩밥", "김치국", "코다리튀김", "단무지", "요구르트"],
+        date: new Date("2025-05-21"),
+        day: Day.WEDNESDAY,
+        description: "오늘은 다 먹는 날!",
+    },
+    {
+        menu: ["돈까스", "쌀국수", "김치", "바나나", "고구마 튀김"],
+        date: new Date("2025-05-22"),
+        day: Day.THURSDAY,
+        description: "",
+    },
+    {
+        menu: ["햄버거", "오렌지 주스", "샐러드", "구운 옥수수", "감자튀김"],
+        date: new Date("2025-05-23"),
+        day: Day.FRIDAY,
+        description: "",
+    },
+    {
+        menu: ["옥수수밥", "미역국", "멸치볶음", "깍두기", "시금치무침"],
+        date: new Date("2025-05-26"),
+        day: Day.MONDAY,
+        description: "",
+    },
+    {
+        menu: ["비빔밥", "된장국", "잡채", "배추김치", "고등어구이"],
+        date: new Date("2025-05-27"),
+        day: Day.TUESDAY,
+        description: "",
+    },
+    {
+        menu: ["검은콩밥", "김치국", "코다리튀김", "단무지", "요구르트"],
+        date: new Date("2025-05-28"),
+        day: Day.WEDNESDAY,
+        description: "오늘은 다 먹는 날!",
+    },
+    {
+        menu: ["돈까스", "쌀국수", "김치", "바나나", "고구마 튀김"],
+        date: new Date("2025-05-29"),
+        day: Day.THURSDAY,
+        description: "",
+    },
+    {
+        menu: ["햄버거", "오렌지 주스", "샐러드", "구운 옥수수", "감자튀김"],
+        date: new Date("2025-05-30"),
+        day: Day.FRIDAY,
+        description: "",
+    },
+];
