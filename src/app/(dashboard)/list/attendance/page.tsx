@@ -1,4 +1,3 @@
-import FormModal from "@/components/FormModal";
 import Pagniation from "@/components/Pagniation";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -81,12 +80,12 @@ const AttendanceListPage = async ({
                 <div className="flex items-center gap-2">
                     {(role === "admin" || role === "teacher") && (
                         <>
-                            <FormModal
+                            <FormContainer
                                 table="attendance"
                                 type="update"
                                 data={item}
                             />
-                            <FormModal
+                            <FormContainer
                                 table="attendance"
                                 type="delete"
                                 id={item.id}

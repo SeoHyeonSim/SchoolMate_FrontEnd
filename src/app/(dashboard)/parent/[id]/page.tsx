@@ -12,7 +12,7 @@ import FormContainer from "@/components/FormContainer";
 import StudentAttendanceCard from "@/components/StudentAttendanceCard";
 import { getOrdinalSuffix } from "@/lib/utils";
 
-const SingleStudentPage = async ({
+const SingleParentPage = async ({
     params: { id },
 }: {
     params: { id: string };
@@ -236,4 +236,4 @@ const SingleStudentPage = async ({
     );
 };
 
-export default SingleStudentPage;
+export default SingleParentPage;

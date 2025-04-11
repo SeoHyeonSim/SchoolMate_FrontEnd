@@ -166,17 +166,23 @@ export const attendanceSchema = z.object({
 
 export type AttendanceSchema = z.infer<typeof attendanceSchema>;
 
-// result 
+// result
 export const resultSchema = z.object({
-    subjectName: z
-        .string()
-        .min(1, { message: "Subject Name must not be emtpy!" }),
-    student: z.string().min(1, { message: "Student Name must not be emtpy!" }),
-    score: z.number().min(1, { message: "Score Name must not be emtpy!" }),
-    teacher: z.string().min(1, { message: "Teacher Name must not be emtpy!" }),
-    class: z.string().min(1, { message: "Class is required!" }),
-    date: z.date({ message: "Date is required!" }),
+    id: z.coerce.number().optional(),
+    score: z.coerce
+        .number({
+            required_error: "Score is required",
+            invalid_type_error: "Score must be a number",
+        })
+        .int()
+        .min(0, { message: "Score must be 0 or greater" }),
+    examId: z.coerce.number().optional().nullable(),
+    assignmentId: z.coerce.number().optional().nullable(),
+    studentId: z
+        .string({
+            required_error: "Student ID is required",
+            invalid_type_error: "Student ID must be a string",
+        })
+        .min(1, { message: "Student ID cannot be empty" }),
 });
-
 export type ResultSchema = z.infer<typeof resultSchema>;
-

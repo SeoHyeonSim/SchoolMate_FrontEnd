@@ -7,11 +7,12 @@ import {
     AttendanceSchema,
 } from "@/lib/formValidationSchemas";
 import InputField from "../InputField";
-import { useState, Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { createAttendance, updateAttendance } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { Lesson, Student } from "@prisma/client";
+import { useFormState } from "react-dom";
 
 const AttendanceForm = ({
     type,
@@ -30,35 +31,34 @@ const AttendanceForm = ({
         formState: { errors },
     } = useForm<AttendanceSchema>({
         resolver: zodResolver(attendanceSchema),
-        defaultValues: data || {},
     });
 
-    const [state, formAction] = useState({ success: false, error: false });
-    const router = useRouter();
-
-    const onSubmit = handleSubmit(async (formData) => {
-        const action = type === "create" ? createAttendance : updateAttendance;
-        const result = await action(state, formData);
-
-        if (result.success) {
-            toast(
-                `Attendance record has been ${
-                    type === "create" ? "created" : "updated"
-                } successfully!`
-            );
-            setOpen(false);
-            router.refresh();
-        } else {
-            toast("An error occurred while processing the request.");
+    const [state, formAction] = useFormState(
+        type === "create" ? createAttendance : updateAttendance,
+        {
+            success: false,
+            error: false,
         }
+    );
+
+    const onSubmit = handleSubmit((data) => {
+        console.log(data);
+        formAction(data);
     });
+
+    const router = useRouter();
 
     useEffect(() => {
         if (state.success) {
+            toast(
+                `Attendance has been ${
+                    type === "create" ? "created" : "updated"
+                }!`
+            );
             setOpen(false);
             router.refresh();
         }
-    }, [state, router, setOpen]);
+    }, [state, router, type, setOpen]);
 
     const { students, lessons } = relatedData;
 
@@ -81,13 +81,14 @@ const AttendanceForm = ({
                 />
 
                 {/* Present Checkbox */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 pr-[65px]">
                     <input
                         type="checkbox"
                         {...register("present")}
                         defaultChecked={data?.present || false}
+                        className="w-4 h-4 accent-blue-500 rounded-md"
                     />
-                    <label>Present</label>
+                    <label className="text-[20px]">Present</label>
                 </div>
             </div>
 
@@ -135,6 +136,17 @@ const AttendanceForm = ({
                         </p>
                     )}
                 </div>
+
+                {data && (
+                    <InputField
+                        label="Id"
+                        name="id"
+                        defaultValue={data?.id}
+                        register={register}
+                        error={errors?.id}
+                        hidden
+                    />
+                )}
             </div>
 
             <button

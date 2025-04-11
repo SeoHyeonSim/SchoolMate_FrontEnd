@@ -10,7 +10,7 @@ const ParentPage = () => {
             <div className="w-full xl:w-2/3">
                 <h1 className="text-xl font-semibold ">Schedule (Jane Doe) </h1>
 
-                <BigCalendar />
+                <BigCalendar data={[]} />
             </div>
             {/* rigth */}
             <div className="w-full xl:w-1/3 flex flex-col gap-8">

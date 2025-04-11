@@ -9,6 +9,7 @@ import {
     ExamSchema,
     LessonSchema,
     ParentSchema,
+    ResultSchema,
     StudentSchema,
     SubjectSchema,
     TeacherSchema,
@@ -413,7 +414,6 @@ export const createExam = async (
             },
         });
 
-        // revalidatePath("/list/subjects");
         return { success: true, error: false };
     } catch (err) {
         console.log(err);
@@ -983,30 +983,115 @@ export const deleteParent = async (
 };
 
 // result
-export const createResult = async () => {};
+export const createResult = async (
+    currentState: CurrentState,
+    data: ResultSchema
+) => {
+    try {
+        await prisma.result.create({
+            data: {
+                score: data.score,
+                studentId: data.studentId,
+                examId: data.examId,
+                assignmentId: data.assignmentId,
+            },
+        });
 
-export const updateResult = async () => {};
+        return { success: true, error: false };
+    } catch (err) {
+        console.log(err);
+        return { success: false, error: true };
+    }
+};
 
-export const deleteResult = async () => {};
+export const updateResult = async (
+    currentState: CurrentState,
+    data: ResultSchema
+) => {
+    if (!data.id) {
+        console.error("ID is missing in the request.");
+        return { success: false, error: true };
+    }
+
+    try {
+        await prisma.attendance.update({
+            where: {
+                id: data.id,
+            },
+            data: {
+                score: data.score,
+                studentId: data.studentId,
+                examId: data.examId,
+                assignmentId: data.assignmentId,
+            },
+        });
+        return { success: true, error: false };
+    } catch (err) {
+        console.log(err);
+        return { success: false, error: true };
+    }
+};
+
+export const deleteResult = async (
+    currentState: CurrentState,
+    data: FormData
+) => {
+    const id = data.get("id") as string;
+
+    const { userId, sessionClaims } = await auth();
+    const role = (sessionClaims?.metadata as { role?: string })?.role;
+
+    try {
+        await prisma.result.delete({
+            where: {
+                id: parseInt(id),
+                ...(role === "teacher"
+                    ? { lesson: { teacherId: userId! } }
+                    : {}),
+            },
+        });
+
+        return { success: true, error: false };
+    } catch (err) {
+        console.log(err);
+        return { success: false, error: true };
+    }
+};
 
 // attendance
 export const createAttendance = async (
     currentState: CurrentState,
     data: AttendanceSchema
 ) => {
+    const { userId, sessionClaims } = await auth();
+    const role = (sessionClaims?.metadata as { role?: string })?.role;
+
     try {
+        if (role === "teacher") {
+            const teacherLesson = await prisma.lesson.findFirst({
+                where: {
+                    teacherId: userId!,
+                    id: data.lessonId,
+                },
+            });
+
+            if (!teacherLesson) {
+                return { success: false, error: true };
+            }
+        }
+
         await prisma.attendance.create({
             data: {
                 date: data.date,
-                present: data.present ?? false,
-                studentId: data.studentId,
+                present: data.present,
                 lessonId: data.lessonId,
+                studentId: data.studentId,
             },
         });
 
         return { success: true, error: false };
     } catch (err) {
-        console.log("Create Attendance Error:", err);
+        console.log(err);
         return { success: false, error: true };
     }
 };
@@ -1015,24 +1100,44 @@ export const updateAttendance = async (
     currentState: CurrentState,
     data: AttendanceSchema
 ) => {
+    const { userId, sessionClaims } = await auth();
+    const role = (sessionClaims?.metadata as { role?: string })?.role;
+
     if (!data.id) {
+        console.error("ID is missing in the request.");
         return { success: false, error: true };
     }
 
     try {
+        if (role === "teacher") {
+            const teacherLesson = await prisma.lesson.findFirst({
+                where: {
+                    teacherId: userId!,
+                    id: data.lessonId,
+                },
+            });
+
+            if (!teacherLesson) {
+                return { success: false, error: true };
+            }
+        }
+
         await prisma.attendance.update({
-            where: { id: data.id },
+            where: {
+                id: data.id,
+            },
             data: {
                 date: data.date,
-                present: data.present ?? false,
-                studentId: data.studentId,
+                present: data.present,
                 lessonId: data.lessonId,
+                studentId: data.studentId,
             },
         });
 
+        // revalidatePath("/list/subjects");
         return { success: true, error: false };
     } catch (err) {
-        console.log("Update Attendance Error:", err);
+        console.log(err);
         return { success: false, error: true };
     }
 };
@@ -1041,20 +1146,24 @@ export const deleteAttendance = async (
     currentState: CurrentState,
     data: FormData
 ) => {
-    const id = parseInt(data.get("id") as string, 10);
+    const id = data.get("id") as string;
 
-    if (!id) {
-        return { success: false, error: true };
-    }
+    const { userId, sessionClaims } = await auth();
+    const role = (sessionClaims?.metadata as { role?: string })?.role;
 
     try {
         await prisma.attendance.delete({
-            where: { id },
+            where: {
+                id: parseInt(id),
+                ...(role === "teacher"
+                    ? { lesson: { teacherId: userId! } }
+                    : {}),
+            },
         });
 
         return { success: true, error: false };
     } catch (err) {
-        console.log("Delete Attendance Error:", err);
+        console.log(err);
         return { success: false, error: true };
     }
 };
