@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 import { UserType } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
     try {
         const rooms = await prisma.videoChatRoom.findMany({
