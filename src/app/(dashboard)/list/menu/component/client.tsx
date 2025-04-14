@@ -17,7 +17,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const MenuClient = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
-    const [hoveredDay, setHoveredDay] = useState<number | null>(null);
     const [menus, setMenus] = useState<Menu[]>([]);
 
     const handlePrevMonth = () => {
