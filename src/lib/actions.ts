@@ -884,104 +884,6 @@ export const deleteLesson = async (
     }
 };
 
-// parent
-export const createParent = async (
-    currentState: CurrentState,
-    data: ParentSchema
-) => {
-    const { sessionClaims } = await auth();
-    const role = (sessionClaims?.metadata as { role?: string })?.role;
-
-    try {
-        if (role !== "admin") {
-            return { success: false, error: true };
-        }
-
-        await prisma.parent.create({
-            data: {
-                id: data.id,
-                username: data.username,
-                name: data.name,
-                surname: data.surname,
-                email: data.email,
-                phone: data.phone,
-                address: data.address,
-            },
-        });
-
-        return { success: true, error: false };
-    } catch (err) {
-        console.log("Create Parent Error:", err);
-        return { success: false, error: true };
-    }
-};
-
-// Update Parent
-export const updateParent = async (
-    currentState: CurrentState,
-    data: ParentSchema
-) => {
-    const { sessionClaims } = await auth();
-    const role = (sessionClaims?.metadata as { role?: string })?.role;
-
-    if (!data.id) {
-        return { success: false, error: true };
-    }
-
-    try {
-        // 예: admin 권한만 부모를 수정할 수 있도록 제한
-        if (role !== "admin") {
-            return { success: false, error: true };
-        }
-
-        await prisma.parent.update({
-            where: { id: data.id },
-            data: {
-                username: data.username,
-                name: data.name,
-                surname: data.surname,
-                email: data.email,
-                phone: data.phone,
-                address: data.address,
-            },
-        });
-
-        return { success: true, error: false };
-    } catch (err) {
-        console.log("Update Parent Error:", err);
-        return { success: false, error: true };
-    }
-};
-
-// Delete Parent
-export const deleteParent = async (
-    currentState: CurrentState,
-    formData: FormData
-) => {
-    const { sessionClaims } = await auth();
-    const role = (sessionClaims?.metadata as { role?: string })?.role;
-
-    const id = formData.get("id") as string;
-    if (!id) {
-        return { success: false, error: true };
-    }
-
-    try {
-        if (role !== "admin") {
-            return { success: false, error: true };
-        }
-
-        await prisma.parent.delete({
-            where: { id },
-        });
-
-        return { success: true, error: false };
-    } catch (err) {
-        console.log("Delete Parent Error:", err);
-        return { success: false, error: true };
-    }
-};
-
 // result
 export const createResult = async (
     currentState: CurrentState,
@@ -1014,7 +916,7 @@ export const updateResult = async (
     }
 
     try {
-        await prisma.attendance.update({
+        await prisma.result.update({
             where: {
                 id: data.id,
             },
@@ -1083,7 +985,7 @@ export const createAttendance = async (
         await prisma.attendance.create({
             data: {
                 date: data.date,
-                present: data.present,
+                present: data.present ?? false,
                 lessonId: data.lessonId,
                 studentId: data.studentId,
             },

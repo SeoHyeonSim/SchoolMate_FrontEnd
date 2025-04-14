@@ -42,19 +42,19 @@ export async function POST(
         //userType을 자동으로 설정
         const [admins, students, teachers, parents] = users;
         const allUsers = [
-            ...admins.map((user: User) => ({
+            ...admins.map((user) => ({
                 id: user.id,
                 userType: UserType.ADMIN,
             })),
-            ...students.map((user: User) => ({
+            ...students.map((user) => ({
                 id: user.id,
                 userType: UserType.STUDENT,
             })),
-            ...teachers.map((user: User) => ({
+            ...teachers.map((user) => ({
                 id: user.id,
                 userType: UserType.TEACHER,
             })),
-            ...parents.map((user: User) => ({
+            ...parents.map((user) => ({
                 id: user.id,
                 userType: UserType.PARENT,
             })),

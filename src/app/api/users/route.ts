@@ -25,16 +25,16 @@ export async function GET() {
         });
 
         const userList = [
-            ...admins.map((user: User) => ({ ...user, userType: UserType.ADMIN })),
-            ...students.map((user: User) => ({
+            ...admins.map((user) => ({ ...user, userType: UserType.ADMIN })),
+            ...students.map((user) => ({
                 ...user,
                 userType: UserType.STUDENT,
             })),
-            ...teachers.map((user: User) => ({
+            ...teachers.map((user) => ({
                 ...user,
                 userType: UserType.TEACHER,
             })),
-            ...parents.map((user: User) => ({ ...user, userType: UserType.PARENT })),
+            ...parents.map((user) => ({ ...user, userType: UserType.PARENT })),
         ];
 
         return NextResponse.json(userList, { status: 200 });

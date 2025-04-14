@@ -8,7 +8,6 @@ import {
     deleteEvent,
     deleteExam,
     deleteLesson,
-    deleteParent,
     deleteResult,
     deleteStudent,
     deleteSubject,
@@ -28,7 +27,6 @@ const deleteActionMap = {
     teacher: deleteTeacher,
     student: deleteStudent,
     exam: deleteExam,
-    parent: deleteParent,
     lesson: deleteLesson,
     assignment: deleteAssignment,
     result: deleteResult,
@@ -43,9 +41,6 @@ const TeacherForm = dynamic(() => import("./TeacherForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 const StudentForm = dynamic(() => import("./StudentFrom"), {
-    loading: () => <h1>Loading...</h1>,
-});
-const ParentForm = dynamic(() => import("./ParentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 const ClassForm = dynamic(() => import("./ClassForm"), {
@@ -100,14 +95,7 @@ const forms: {
             relatedData={relatedData}
         />
     ),
-    parent: (setOpen, type, data, relatedData) => (
-        <ParentForm
-            type={type}
-            data={data}
-            setOpen={setOpen}
-            relatedData={relatedData}
-        />
-    ),
+
     class: (setOpen, type, data, relatedData) => (
         <ClassForm
             setOpen={setOpen}
@@ -188,7 +176,7 @@ const FormModal = ({
     data,
     id,
     relatedData,
-}: FormContainerProps & { relatedData?: any }) => {
+}: FormContainerProps & { relatedData?: any } & { table: keyof typeof deleteActionMap }) => {
     const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
     const bgColor =
         type === "create"
@@ -200,7 +188,7 @@ const FormModal = ({
     const [open, setOpen] = useState(false);
 
     const Form = () => {
-        const [state, formAction] = useFormState(deleteActionMap[table], {
+        const [state, formAction] = useFormState(deleteActionMap[table as keyof typeof deleteActionMap], {
             success: false,
             error: false,
         });
