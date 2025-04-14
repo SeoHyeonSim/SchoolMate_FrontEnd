@@ -1,7 +1,6 @@
-import Announcements from "@/components/Announcements";
-import BigCalendar from "@/components/BigCalendar";
-import BigCalenderContainer from "@/components/BigCalenderContainer";
-import EventCalandarContainer from "@/components/EventCalendarContainer";
+import Announcements from "@/components/dashboard/Announcements";
+import BigCalenderContainer from "@/components/shared/BigCalenderContainer";
+import EventCalandarContainer from "@/components/dashboard/EventCalendarContainer";
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
 

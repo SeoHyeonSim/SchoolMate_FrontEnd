@@ -1,12 +1,12 @@
-import Pagniation from "@/components/Pagniation";
-import Table from "@/components/Table";
-import TableSearch from "@/components/TableSearch";
+import Pagniation from "@/components/shared/Pagniation";
+import Table from "@/components/shared/Table";
+import TableSearch from "@/components/shared/TableSearch";
 import { Class, Exam, Prisma, Subject, Teacher } from "@prisma/client";
 import Image from "next/image";
 import prisma from "@/lib/prismadb";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 import { auth } from "@clerk/nextjs/server";
-import FormContainer from "@/components/FormContainer";
+import FormContainer from "@/components/forms/FormContainer";
 
 type ExamList = Exam & {
     lesson: {

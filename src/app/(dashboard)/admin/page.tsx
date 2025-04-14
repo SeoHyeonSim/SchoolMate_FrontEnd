@@ -1,9 +1,9 @@
-import Announcements from "@/components/Announcements";
-import AttendanceChartContainer from "@/components/AttendanceChartContainer";
-import CountChartContainer from "@/components/CountChartContainer";
-import EventCalandarContainer from "@/components/EventCalendarContainer";
-import FinanceChart from "@/components/FinanceChart";
-import UserCard from "@/components/UserCard";
+import Announcements from "@/components/dashboard/Announcements";
+import AttendanceChartContainer from "@/components/dashboard/AttendanceChartContainer";
+import CountChartContainer from "@/components/dashboard/CountChartContainer";
+import EventCalandarContainer from "@/components/dashboard/EventCalendarContainer";
+import FinanceChart from "@/components/dashboard/FinanceChart";
+import UserCard from "@/components/dashboard/UserCard";
 import React from "react";
 
 const AdminPage = ({

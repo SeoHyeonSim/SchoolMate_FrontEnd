@@ -39,40 +39,40 @@ const deleteActionMap = {
 
 // USE LAZY LOADING
 
-const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
+const TeacherForm = dynamic(() => import("./TeacherForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const StudentForm = dynamic(() => import("./forms/StudentFrom"), {
+const StudentForm = dynamic(() => import("./StudentFrom"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ParentForm = dynamic(() => import("./forms/ParentForm"), {
+const ParentForm = dynamic(() => import("./ParentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ClassForm = dynamic(() => import("./forms/ClassForm"), {
+const ClassForm = dynamic(() => import("./ClassForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const LessonForm = dynamic(() => import("./forms/LessonForm"), {
+const LessonForm = dynamic(() => import("./LessonForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ExamForm = dynamic(() => import("./forms/ExamForm"), {
+const ExamForm = dynamic(() => import("./ExamForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AssignmentForm = dynamic(() => import("./forms/AssignmentForm"), {
+const AssignmentForm = dynamic(() => import("./AssignmentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ResultForm = dynamic(() => import("./forms/ResultForm"), {
+const ResultForm = dynamic(() => import("./ResultForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AttendanceForm = dynamic(() => import("./forms/AttendanceForm"), {
+const AttendanceForm = dynamic(() => import("./AttendanceForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const EventForm = dynamic(() => import("./forms/EventForm"), {
+const EventForm = dynamic(() => import("./EventForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AnnouncementForm = dynamic(() => import("./forms/AnnouncementForm"), {
+const AnnouncementForm = dynamic(() => import("./AnnouncementForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
+const SubjectForm = dynamic(() => import("./SubjectForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 

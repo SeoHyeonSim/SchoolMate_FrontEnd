@@ -6,9 +6,9 @@ import { ChatParticipant, UserType } from "@prisma/client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import Messages, { MessageProps } from "@/app/components/classchat/Messages";
-import ChatBar from "@/app/components/classchat/ChatBar";
-import ChatSidebar from "@/app/components/classchat/ChatSidebar";
+import Messages, { MessageProps } from "@/components/classchat/Messages";
+import ChatBar from "@/components/classchat/ChatBar";
+import ChatSidebar from "@/components/classchat/ChatSidebar";
 
 interface User {
     id: string;

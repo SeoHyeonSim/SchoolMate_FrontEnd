@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, ReactNode } from "react";
-import ChatBotBox from "@/app/components/chatbot/ChatBotBox";
+import ChatBotBox from "@/components/chatbot/ChatBotBox";
 import { Role } from "@prisma/client";
 import {
     assignmentButtons,
@@ -14,12 +14,12 @@ import {
     toFirstPageButton,
 } from "@/app/types/types";
 
-import WeekMenuList from "@/app/components/chatbot/messageForm/Menu/WeekMenuList";
-import TodayMenuList from "@/app/components/chatbot/messageForm/Menu/TodayMenuList";
-import ChatbotAssignmentForm from "@/app/components/chatbot/messageForm/Assignment/ChatbotAssignmentsForm";
-import ChatbotExamsForms from "@/app/components/chatbot/messageForm/Exam/ChatbotExamsForm";
-import ChatbotEventsForm from "@/app/components/chatbot/messageForm/Event/ChatbotEventsForm";
-import LinkButton from "@/app/components/chatbot/LinkButton";
+import WeekMenuList from "@/components/chatbot/messageForm/Menu/WeekMenuList";
+import TodayMenuList from "@/components/chatbot/messageForm/Menu/TodayMenuList";
+import ChatbotAssignmentForm from "@/components/chatbot/messageForm/Assignment/ChatbotAssignmentsForm";
+import ChatbotExamsForms from "@/components/chatbot/messageForm/Exam/ChatbotExamsForm";
+import ChatbotEventsForm from "@/components/chatbot/messageForm/Event/ChatbotEventsForm";
+import LinkButton from "@/components/chatbot/LinkButton";
 
 interface MessageProps {
     role: Role;

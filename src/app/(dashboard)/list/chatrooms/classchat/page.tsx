@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import ChatCreateModal from "@/app/components/classchat/ChatCreateModal";
+import ChatCreateModal from "@/components/classchat/ChatCreateModal";
 import { useUser } from "@clerk/nextjs";
-import ChatroomTile from "../../../../components/classchat/ChatroomTile";
-import CreateChatroomButton from "../../../../components/classchat/CreateChatroomButton";
+import ChatroomTile from "../../../../../components/classchat/ChatroomTile";
+import CreateChatroomButton from "../../../../../components/classchat/CreateChatroomButton";
 
 const ClassChatPage = () => {
     const [chatrooms, setChatrooms] = useState<{ id: string; name: string }[]>(

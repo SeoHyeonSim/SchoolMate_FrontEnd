@@ -1,9 +1,9 @@
-import Announcements from "@/components/Announcements";
-import BigCalenderContainer from "@/components/BigCalenderContainer";
+import Announcements from "@/components/dashboard/Announcements";
 import { auth } from "@clerk/nextjs/server";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import prisma from "@/lib/prismadb";
-import EventCalander from "@/components/EventCalander";
+import EventCalander from "@/components/dashboard/EventCalander";
+import BigCalenderContainer from "@/components/shared/BigCalenderContainer";
 
 const StudentPage = async () => {
     const { userId } = await auth();

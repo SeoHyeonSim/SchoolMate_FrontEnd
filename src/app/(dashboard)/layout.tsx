@@ -1,8 +1,8 @@
-import Menu from "@/components/Menu";
-import NavBar from "@/components/NavBar";
+import Menu from "@/components/shared/Menu";
+import NavBar from "@/components/shared/NavBar";
 import Image from "next/image";
 import Link from "next/link";
-import ChatbotComponent from "../components/chatbot/ChatbotComponent";
+import ChatbotComponent from "../../components/chatbot/ChatbotComponent";
 
 export default function DashboardLayout({
     children,

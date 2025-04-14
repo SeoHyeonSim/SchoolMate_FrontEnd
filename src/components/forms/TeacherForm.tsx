@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import InputField from "../InputField";
+import InputField from "./InputField";
 import Image from "next/image";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { teacherSchema, TeacherSchema } from "@/lib/formValidationSchemas";

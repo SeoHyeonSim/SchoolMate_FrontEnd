@@ -12,7 +12,7 @@ import {
     getDay,
 } from "date-fns";
 import { ko } from "date-fns/locale";
-import DateMenuBlock from "@/app/components/menu/DateMenuBlock";
+import DateMenuBlock from "@/components/menu/DateMenuBlock";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const MenuClient = () => {

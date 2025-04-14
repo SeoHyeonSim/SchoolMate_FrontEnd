@@ -1,5 +1,5 @@
-import Announcements from "@/components/Announcements";
-import Performance from "@/components/Performance";
+import Announcements from "@/components/dashboard/Announcements";
+import Performance from "@/components/student/Performance";
 import { auth } from "@clerk/nextjs/server";
 import { Class, Student } from "@prisma/client";
 import Image from "next/image";
@@ -7,10 +7,10 @@ import Link from "next/link";
 
 import prisma from "@/lib/prismadb";
 import { notFound } from "next/navigation";
-import BigCalenderContainer from "@/components/BigCalenderContainer";
-import FormContainer from "@/components/FormContainer";
-import StudentAttendanceCard from "@/components/StudentAttendanceCard";
+import FormContainer from "@/components/forms/FormContainer";
+import StudentAttendanceCard from "@/components/student/StudentAttendanceCard";
 import { getOrdinalSuffix } from "@/lib/utils";
+import BigCalenderContainer from "@/components/shared/BigCalenderContainer";
 
 const SingleStudentPage = async ({
     params: { id },

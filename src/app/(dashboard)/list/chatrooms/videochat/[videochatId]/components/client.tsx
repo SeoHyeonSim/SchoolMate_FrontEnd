@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import VideoChat from "@/app/components/videochat/VideoChat";
+import VideoChat from "@/components/videochat/VideoChat";
 import { VideoChatParticipant } from "@prisma/client";
 
 const VideoChatClient = () => {

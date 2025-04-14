@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
-import VideoChatroomTile from "@/app/components/videochat/VideoChatroomTile";
+import VideoChatroomTile from "@/components/videochat/VideoChatroomTile";
 import { Plus } from "lucide-react";
-import CreateVideoChatModal from "@/app/components/videochat/CreateVideoChatModal";
+import CreateVideoChatModal from "@/components/videochat/CreateVideoChatModal";
 import { User } from "@/app/types/types";
 
 const VideoChatListPage = () => {
