@@ -1,4 +1,3 @@
-import { Menu } from "@prisma/client";
 import React from "react";
 import MenuTile from "./MenuTile";
 

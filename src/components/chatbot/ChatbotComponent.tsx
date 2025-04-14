@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import ChatBotIcon from "./ChatBotIcon";
-import ChatBotBox from "./ChatBotBox";
 
 const ChatbotComponent = () => {
     return (

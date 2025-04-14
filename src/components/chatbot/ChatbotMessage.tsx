@@ -2,11 +2,6 @@ import { cn } from "@/lib/utils";
 import { Role } from "@prisma/client";
 import React, { ReactNode } from "react";
 
-import { useTheme } from "next-themes";
-
-import { BeatLoader } from "react-spinners";
-import { Smile } from "lucide-react";
-
 interface ChatbotMessageProps {
     content: ReactNode;
     role: Role;

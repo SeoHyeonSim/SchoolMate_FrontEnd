@@ -10,11 +10,10 @@ import {
     getUpcomingExams,
     getWeekMeal,
 } from "./queries/queries";
-import { ReactNode } from "react";
 import { LessonData } from "@/app/types/types";
 
 export interface ApiResponse {
-    reply: ReactNode;
+    reply: string | object;
 }
 
 let currentMode: "assignment" | "exam" | null = null;
