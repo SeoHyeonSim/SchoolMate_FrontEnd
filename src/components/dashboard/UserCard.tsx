@@ -15,8 +15,7 @@ const UserCard = async ({
         parent: prisma.parent,
     };
 
-    const data = await modelMap[type].count()
-
+    const data = await modelMap[type].count();
 
     return (
         <div className="rounded-2xl odd:bg-lamaPurple even:bg-lamaYellow flex-1 min-w-[130px] px-4 py-3">
