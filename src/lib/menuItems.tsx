@@ -40,12 +40,7 @@ export const menuItems = [
                 href: "/list/students",
                 visible: ["admin", "teacher"],
             },
-            {
-                icon: <MdFamilyRestroom size={20} />,
-                label: "Parents",
-                href: "/list/parents",
-                visible: ["admin", "teacher"],
-            },
+
             {
                 icon: <BookA size={20} />,
                 label: "Subjects",
