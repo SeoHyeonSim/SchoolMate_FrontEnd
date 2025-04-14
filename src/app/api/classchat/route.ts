@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/prismadb"; 
+import prisma from "@/lib/prismadb";
 import { UserType } from "@prisma/client";
+
+export const dynamic = "force-dynamic";
 
 // 채팅방 목록 불러오기
 export async function GET() {
