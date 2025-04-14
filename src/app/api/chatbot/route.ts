@@ -12,6 +12,8 @@ import {
 } from "./queries/queries";
 import { LessonData } from "@/app/types/types";
 
+export const dynamic = "force-dynamic";
+
 export interface ApiResponse {
     reply: string | object;
 }
