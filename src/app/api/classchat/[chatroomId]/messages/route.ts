@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 import { Message } from "@prisma/client";
 
-// 🔹 특정 채팅방의 메시지 목록 조회 (GET 요청)
+export const dynamic = "force-dynamic";
+
+// 특정 채팅방의 메시지 목록 조회 
 export async function GET(
     req: Request,
     { params }: { params: { chatroomId: string } }
