@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 
-// 🔹 특정 채팅방 정보 조회 (GET 요청)
+export const dynamic = "force-dynamic";
+
+// 특정 채팅방 정보 조회 (GET 요청)
 export async function GET(
     req: Request,
     { params }: { params: { chatroomId: string } }

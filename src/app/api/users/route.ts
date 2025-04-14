@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 import { UserType } from "@prisma/client";
-import { User } from "@/app/types/types";
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
     console.log("API 호출됨: /api/users");
