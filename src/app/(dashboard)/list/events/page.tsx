@@ -6,7 +6,7 @@ import { Class, Event, Prisma } from "@prisma/client";
 import Image from "next/image";
 import Pagniation from "@/components/shared/Pagniation";
 import { auth } from "@clerk/nextjs/server";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 
 type EventList = Event & { class: Class };
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import prisma from "@/lib/prismadb";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 import { auth } from "@clerk/nextjs/server";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 
 type ExamList = Exam & {
     lesson: {

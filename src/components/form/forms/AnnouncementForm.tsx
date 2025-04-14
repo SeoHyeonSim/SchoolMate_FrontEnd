@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import InputField from "./InputField";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import {
     announcementSchema,
@@ -10,8 +9,9 @@ import {
 } from "@/lib/formValidationSchemas";
 import { useRouter } from "next/navigation";
 import { useFormState } from "react-dom";
-import { createAnnouncement, updateAnnouncement } from "@/lib/actions";
 import { toast } from "react-toastify";
+import InputField from "../components/InputField";
+import { createAnnouncement, updateAnnouncement } from "@/lib/actions";
 
 const AnnouncementForm = ({
     type,

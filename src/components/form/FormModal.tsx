@@ -35,39 +35,37 @@ const deleteActionMap = {
     announcement: deleteAnnouncement,
 };
 
-// USE LAZY LOADING
-
-const TeacherForm = dynamic(() => import("./TeacherForm"), {
+const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const StudentForm = dynamic(() => import("./StudentFrom"), {
+const StudentForm = dynamic(() => import("./forms/StudentFrom"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ClassForm = dynamic(() => import("./ClassForm"), {
+const ClassForm = dynamic(() => import("./forms/ClassForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const LessonForm = dynamic(() => import("./LessonForm"), {
+const LessonForm = dynamic(() => import("./forms/LessonForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ExamForm = dynamic(() => import("./ExamForm"), {
+const ExamForm = dynamic(() => import("./forms/ExamForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AssignmentForm = dynamic(() => import("./AssignmentForm"), {
+const AssignmentForm = dynamic(() => import("./forms/AssignmentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const ResultForm = dynamic(() => import("./ResultForm"), {
+const ResultForm = dynamic(() => import("./forms/ResultForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AttendanceForm = dynamic(() => import("./AttendanceForm"), {
+const AttendanceForm = dynamic(() => import("./forms/AttendanceForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const EventForm = dynamic(() => import("./EventForm"), {
+const EventForm = dynamic(() => import("./forms/EventForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const AnnouncementForm = dynamic(() => import("./AnnouncementForm"), {
+const AnnouncementForm = dynamic(() => import("./forms/AnnouncementForm"), {
     loading: () => <h1>Loading...</h1>,
 });
-const SubjectForm = dynamic(() => import("./SubjectForm"), {
+const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 

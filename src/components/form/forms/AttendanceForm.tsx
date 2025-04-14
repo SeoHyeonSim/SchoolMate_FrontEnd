@@ -6,7 +6,7 @@ import {
     attendanceSchema,
     AttendanceSchema,
 } from "@/lib/formValidationSchemas";
-import InputField from "./InputField";
+import InputField from "../components/InputField";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { createAttendance, updateAttendance } from "@/lib/actions";
 import { useRouter } from "next/navigation";

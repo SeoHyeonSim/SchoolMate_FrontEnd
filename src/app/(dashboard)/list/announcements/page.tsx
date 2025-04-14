@@ -7,7 +7,7 @@ import React from "react";
 import prisma from "@/lib/prismadb";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 import { auth } from "@clerk/nextjs/server";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 
 export const dynamic = "force-dynamic";
 

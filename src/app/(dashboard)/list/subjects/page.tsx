@@ -1,4 +1,4 @@
-import FormModal from "@/components/forms/FormModal";
+import FormModal from "@/components/form/FormModal";
 import Pagniation from "@/components/shared/Pagniation";
 import Table from "@/components/shared/Table";
 import TableSearch from "@/components/shared/TableSearch";
@@ -8,7 +8,7 @@ import React from "react";
 import prisma from "@/lib/prismadb";
 import { ITEM_PER_PAGE } from "@/lib/settings";
 import { auth } from "@clerk/nextjs/server";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 
 type SubjectList = Subject & { teachers: Teacher[] };
 

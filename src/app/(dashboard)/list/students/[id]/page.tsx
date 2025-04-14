@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import prisma from "@/lib/prismadb";
 import { notFound } from "next/navigation";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 import StudentAttendanceCard from "@/components/student/StudentAttendanceCard";
 import { getOrdinalSuffix } from "@/lib/utils";
 import BigCalenderContainer from "@/components/shared/BigCalenderContainer";

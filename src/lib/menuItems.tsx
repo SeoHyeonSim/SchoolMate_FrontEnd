@@ -3,7 +3,6 @@ import {
     BookA,
     BookOpenText,
     CalendarDays,
-    Check,
     GraduationCap,
     House,
     Megaphone,

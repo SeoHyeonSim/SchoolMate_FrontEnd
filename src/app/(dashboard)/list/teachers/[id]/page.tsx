@@ -8,7 +8,7 @@ import React from "react";
 
 import prisma from "@/lib/prismadb";
 import { notFound } from "next/navigation";
-import FormContainer from "@/components/forms/FormContainer";
+import FormContainer from "@/components/form/FormContainer";
 import BigCalenderContainer from "@/components/shared/BigCalenderContainer";
 
 const SingleTeacherPage = async ({
