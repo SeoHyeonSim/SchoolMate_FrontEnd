@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prismadb";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
     console.log("getting messages from messages/route.ts");
     const { userId } = await auth();
