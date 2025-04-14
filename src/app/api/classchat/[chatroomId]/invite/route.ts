@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 import { UserType } from "@prisma/client";
-import { User } from "@/app/types/types";
 
-//POST 요청 핸들러 (App Router 방식)
+export const dynamic = "force-dynamic";
+
+//POST 요청 핸들러
 export async function POST(
     req: Request,
     { params }: { params: { chatroomId: string } }
