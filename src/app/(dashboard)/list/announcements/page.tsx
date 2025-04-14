@@ -9,6 +9,8 @@ import { ITEM_PER_PAGE } from "@/lib/settings";
 import { auth } from "@clerk/nextjs/server";
 import FormContainer from "@/components/forms/FormContainer";
 
+export const dynamic = "force-dynamic";
+
 type AnnouncementList = Announcement & { class: Class };
 
 const AnnouncementsListPage = async ({
