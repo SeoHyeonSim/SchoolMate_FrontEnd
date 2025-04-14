@@ -101,7 +101,7 @@ export interface EventData {
     endTime: Date;
     class: {
         name: string;
-    };
+    } | null;
 }
 
 export const userTypeColors: Record<UserType, string> = {

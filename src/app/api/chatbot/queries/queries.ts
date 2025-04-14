@@ -243,7 +243,7 @@ export async function getUpcomingEvents() {
             minute: "2-digit",
             hour12: false,
         }),
-        className: event.class.name || "-",
+        className: event.class?.name ?? "-",
     }));
 
     console.log(formattedUpcomingEvents);

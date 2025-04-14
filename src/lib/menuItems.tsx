@@ -16,7 +16,6 @@ import { GoChecklist } from "react-icons/go";
 import { FaRegCheckSquare } from "react-icons/fa";
 
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { MdFamilyRestroom } from "react-icons/md";
 
 export const menuItems = [
     {

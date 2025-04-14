@@ -76,7 +76,7 @@ const SubjectListPage = async ({
 
     // query
 
-    const query: Prisma.ClassWhereInput = {};
+    const query: Prisma.SubjectWhereInput = {};
 
     if (queryParams) {
         for (const [key, value] of Object.entries(queryParams)) {
