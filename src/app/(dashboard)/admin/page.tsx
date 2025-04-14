@@ -6,6 +6,8 @@ import FinanceChart from "@/components/dashboard/FinanceChart";
 import UserCard from "@/components/dashboard/UserCard";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 const AdminPage = ({
     searchParams,
 }: {
